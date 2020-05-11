@@ -1,0 +1,54 @@
+<!-- Main -->
+<div id="main">
+
+	<!-- Featured Post -->
+	<% @posts.each do |post| %>
+		<% if post.featured %>
+		<article class="post featured">
+			<header class="major">
+				<span class="date"><%= post.created_at.to_formatted_s(:long) %></span>
+				<h2><a href="#"><%= post.title %></a></h2>
+				
+			</header>
+			<a href="#" class="image main"><img src="<%= post.img_url %>" alt=""/></a>
+			<ul class="actions">
+				<li><a href="#" class="button big">Full Story</a></li>
+			</ul>
+		</article>
+		<% end %>
+	<% end %>
+
+	<!-- Posts -->
+		<section class="posts">
+			<% @posts.each do |post| %>
+				<% if not post.featured %>
+					<article>
+						<header>
+							<span class="date"><%= post.created_at.to_formatted_s(:long) %></span>
+							<h2><a href="#"><%= post.title %></a></h2>
+						</header>
+						<a href="#" class="image fit"><img src="<%= post.img_url %>" alt="" /></a>
+						<ul class="actions">
+							<li><a href="#" class="button">Full Story</a></li>
+						</ul>
+					</article>
+				<% end %>
+			<% end %>
+		</section>
+
+	<!-- Footer -->
+		<footer>
+			<div class="pagination">
+				<!--<a href="#" class="previous">Prev</a>-->
+				<a href="#" class="page active">1</a>
+				<a href="#" class="page">2</a>
+				<a href="#" class="page">3</a>
+				<span class="extra">&hellip;</span>
+				<a href="#" class="page">8</a>
+				<a href="#" class="page">9</a>
+				<a href="#" class="page">10</a>
+				<a href="#" class="next">Next</a>
+			</div>
+		</footer>
+
+</div>
